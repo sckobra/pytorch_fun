@@ -52,7 +52,33 @@ This file implements a Recurrent Graph Neural Network (RecGNN) that performs ite
 
 The values converge towards zero, demonstrating the stabilizing effect of recurrent updates.
 
-#### 3. `CLAUDE.md` - Development Guide
+#### 3. `cGNN.py` - Convolutional Graph Neural Network Implementation
+This file implements a Graph Convolutional Network (GCN) with multiple layers and different weights per layer.
+
+**Algorithm Implementation:**
+- **GCN Update**: `H^(l+1) = ReLU(A_norm × H^(l) × W^(l))`
+- **Normalized Adjacency**: Uses degree normalization with self-loops
+- **Multi-Layer Architecture**: 2 layers with different weight matrices
+
+**Key Components:**
+- **Normalized Adjacency Matrix (A_norm)**: `D^(-1/2) × (A + I) × D^(-1/2)`
+- **Self-Loops Addition**: `A_hat = A + I` for better node representation
+- **Layer-Specific Weights**:
+  - `W1` (0.6): Weight matrix for first GCN layer
+  - `W2` (0.4): Different weight matrix for second layer
+- **ReLU Activation**: Non-linear activation between layers
+
+**Algorithm Flow:**
+1. **Normalization**: Compute normalized adjacency matrix with self-loops
+2. **Layer 1**: `H1 = ReLU(A_norm × H × W1)`
+3. **Layer 2**: `H2 = ReLU(A_norm × H1 × W2)`
+
+**Output Evolution:**
+- **Initial**: `[[-1.0], [0.0], [1.0]]`
+- **After Layer 1**: `[[0.0], [0.0], [0.3]]`
+- **After Layer 2**: `[[0.0], [0.049], [0.060]]`
+
+#### 4. `CLAUDE.md` - Development Guide
 Configuration file providing guidance for AI-assisted development in this repository.
 
 **Contents:**
