@@ -30,3 +30,27 @@ for t in range(3):  # 3 recurrent steps
 # After step 1: [-0.5370495915412903, 0.0, 0.5370495915412903]
 # After step 2: [-0.3115217089653015, 0.0, 0.3115217089653015]
 # After step 3: [-0.18476632237434387, 0.0, 0.18476632237434387]
+
+
+#   What These Numbers Represent:
+
+#   1. Node Representations: Each number is the learned      
+#   hidden state/representation for nodes 0, 1, and 2        
+#   respectively
+#   2. Evolution Over Time: Shows how the node
+#   representations change through 3 iterations of
+#   message passing
+#   3. Convergence: The values are getting smaller
+#   (converging toward 0), showing the network is
+#   stabilizing
+#   4. Symmetry: Node 0 and Node 2 have opposite values      
+#   due to the symmetric graph structure and their
+#   initial states (-1 and +1)
+#   5. Center Node: Node 1 stays at 0.0 because it
+#   started at 0 and receives equal influence from both      
+#   neighbors
+
+#   The output demonstrates how recurrent message passing    
+#    gradually refines node representations based on both    
+#    the node's current state and information from its       
+#   neighbors.
