@@ -27,7 +27,7 @@ neighbor_agg = torch.matmul(A, H)  # shape (num_nodes, hidden_dim)
 
 # 2️⃣ UPDATE: combine self + neighbor info
 # Here we use a simple linear combination followed by tanh
-H_new = torch.tanh(W_self * H + W_neigh * neighbor_agg + b)
+H_new = torch.tanh(W_self * H + W_neigh * neighbor_agg)
 
 print("Previous hidden states:\n", H)
 print("Neighbor aggregation:\n", neighbor_agg)
